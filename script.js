@@ -13,3 +13,26 @@ const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
 const numberChars = "0123456789";
 const symbolChars = "!@#$%^&*()_+{}|[]<>?,.";
 
+function generatePassword() {
+    let length = parseInt(lengthInput.value);
+    let charSet = "";
+    let password = "";
+
+    if (uppercaseCheck.checked) charSet += uppercaseChars;
+    if (lowercaseCheck.checked) charSet += lowercaseChars;
+    if (numberCheck.checked) charSet += numberChars;
+    if (symbolCheck.checked) charSet += symbolChars;
+
+    if (charSet.length === 0) {
+        passwordDisplay.value = "Select at least one option";
+        return;
+    }
+
+    for (let i = 0; i < length; i++) {
+        let randomIndex = Math.floor(Math.random() * charSet.length);
+        password += charSet[randomIndex];
+    }
+
+    passwordDisplay.value = password;
+    updateStrengthIndicator(password);
+}
