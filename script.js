@@ -36,3 +36,29 @@ function generatePassword() {
     passwordDisplay.value = password;
     updateStrengthIndicator(password);
 }
+
+function updateStrengthIndicator(password) {
+    let strength = "Weak";
+    let score = 0;
+
+    if (password.length >= 8) score++;
+    if (password.match(/[A-Z]/)) score++;
+    if (password.match(/[a-z]/)) score++;
+    if (password.match(/[0-9]/)) score++;
+    if (password.match(/[!@#$%^&*()_+{}|<>?,.]/)) score++;
+
+    if (score <= 2) strength = "Weak";
+    else if (score === 3) strength = "Medium";
+    else strength = "Strong";
+
+    strengthIndicator.textContent = `Strength: ${strength}`;
+    strengthIndicator.style.color = strength === "Strong" ? "green" : strength === "Medium" ? "orange" : "red";
+}
+
+copyBtn.addEventListener("click", () => {
+    passwordDisplay.select();
+    document.execCommand("copy");
+    alert("Password copied to clipboard!");
+});
+
+generateBtn.addEventListener("click", generatePassword);
