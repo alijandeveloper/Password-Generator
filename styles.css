@@ -14,19 +14,60 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    width: 300px;
+    width: 320px;
 }
 
-input[type="text"] {
+/* Password Input & Copy Button */
+.password-container {
+    display: flex;
+    position: relative;
+}
+
+#password-display {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
     border: none;
     border-radius: 5px;
     text-align: center;
     font-size: 18px;
 }
 
+#copy-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ffcc00;
+    transition: 0.3s;
+}
+
+#copy-btn:hover {
+    color: #ffd700;
+}
+
+/* Password Length Styling */
+.length-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+#length {
+    width: 50px;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Buttons */
 button {
     background: #ff5722;
     color: white;
@@ -43,6 +84,7 @@ button:hover {
     background: #e64a19;
 }
 
+/* Options */
 .options {
     display: flex;
     flex-direction: column;
@@ -50,6 +92,7 @@ button:hover {
     margin: 10px 0;
 }
 
+/* Strength Indicator */
 #strength-indicator {
     margin-top: 10px;
     font-weight: bold;
