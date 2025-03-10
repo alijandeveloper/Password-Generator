@@ -7,3 +7,9 @@ const numberCheck = document.getElementById("numbers");
 const symbolCheck = document.getElementById("symbols");
 const generateBtn = document.getElementById("generate-btn");
 const strengthIndicator = document.getElementById("strength-indicator");
+
+const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+const numberChars = "0123456789";
+const symbolChars = "!@#$%^&*()_+{}|[]<>?,.";
+
