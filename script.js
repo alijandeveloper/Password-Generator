@@ -55,10 +55,15 @@ function updateStrengthIndicator(password) {
     strengthIndicator.style.color = strength === "Strong" ? "green" : strength === "Medium" ? "orange" : "red";
 }
 
+/* Copy Password Without Alert Box */
 copyBtn.addEventListener("click", () => {
-    passwordDisplay.select();
-    document.execCommand("copy");
-    alert("Password copied to clipboard!");
+    navigator.clipboard.writeText(passwordDisplay.value);
+
+    // Smooth Copy Effect
+    copyBtn.textContent = "✅";
+    setTimeout(() => {
+        copyBtn.textContent = "📋";
+    }, 1000);
 });
 
 generateBtn.addEventListener("click", generatePassword);
